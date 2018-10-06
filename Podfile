@@ -6,9 +6,9 @@ target 'GithubJobs' do
   use_frameworks!
 
   # Pods for GithubJobs
-  pod 'ChameleonFramework/Swift'
   pod 'Alamofire', '~> 4.7'
   pod 'IGListKit', '~> 3.0'
+  pod 'BEMCheckBox'
 
   target 'GithubJobsTests' do
     inherit! :search_paths

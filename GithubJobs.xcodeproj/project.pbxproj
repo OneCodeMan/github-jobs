@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		0E467D0AAC04F521DE6CBE60 /* Pods_GithubJobsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B02D58A03B0A05A882604D /* Pods_GithubJobsUITests.framework */; };
 		161D950C216918C500A1B8F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D950B216918C500A1B8F5 /* AppDelegate.swift */; };
-		161D950E216918C500A1B8F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D950D216918C500A1B8F5 /* ViewController.swift */; };
+		161D950E216918C500A1B8F5 /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D950D216918C500A1B8F5 /* JobsViewController.swift */; };
 		161D9511216918C500A1B8F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161D950F216918C500A1B8F5 /* Main.storyboard */; };
 		161D9513216918C700A1B8F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161D9512216918C700A1B8F5 /* Assets.xcassets */; };
 		161D9516216918C700A1B8F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161D9514216918C700A1B8F5 /* LaunchScreen.storyboard */; };
 		161D9521216918C800A1B8F5 /* GithubJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D9520216918C800A1B8F5 /* GithubJobsTests.swift */; };
 		161D952C216918C800A1B8F5 /* GithubJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D952B216918C800A1B8F5 /* GithubJobsUITests.swift */; };
+		165BF7EC21691E1400E169E8 /* GithubJobsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BF7EB21691E1400E169E8 /* GithubJobsAPI.swift */; };
+		165BF7EF21691E2E00E169E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BF7EE21691E2E00E169E8 /* Job.swift */; };
+		165BF7F3216926C400E169E8 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BF7F2216926C400E169E8 /* ViewBuilder.swift */; };
+		165BF7F62169272800E169E8 /* Avenir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165BF7F52169272800E169E8 /* Avenir.swift */; };
 		6D233ECC5700B620842A607B /* Pods_GithubJobsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F14D649F4F1AA904C96C714 /* Pods_GithubJobsTests.framework */; };
 		EF3516187C416B77DED222D5 /* Pods_GithubJobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83846947950914FA6C7E7504 /* Pods_GithubJobs.framework */; };
 /* End PBXBuildFile section */
@@ -39,7 +43,7 @@
 /* Begin PBXFileReference section */
 		161D9508216918C500A1B8F5 /* GithubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		161D950B216918C500A1B8F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		161D950D216918C500A1B8F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		161D950D216918C500A1B8F5 /* JobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewController.swift; sourceTree = "<group>"; };
 		161D9510216918C500A1B8F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		161D9512216918C700A1B8F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161D9515216918C700A1B8F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +54,10 @@
 		161D9527216918C800A1B8F5 /* GithubJobsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubJobsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		161D952B216918C800A1B8F5 /* GithubJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJobsUITests.swift; sourceTree = "<group>"; };
 		161D952D216918C800A1B8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		165BF7EB21691E1400E169E8 /* GithubJobsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubJobsAPI.swift; sourceTree = "<group>"; };
+		165BF7EE21691E2E00E169E8 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		165BF7F2216926C400E169E8 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		165BF7F52169272800E169E8 /* Avenir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avenir.swift; sourceTree = "<group>"; };
 		21B02D58A03B0A05A882604D /* Pods_GithubJobsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubJobsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B973D6200FA4DE947E4E246 /* Pods-GithubJobsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubJobsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubJobsTests/Pods-GithubJobsTests.release.xcconfig"; sourceTree = "<group>"; };
 		50EFCC1B53310923CD93CAE8 /* Pods-GithubJobsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubJobsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubJobsTests/Pods-GithubJobsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,8 +122,12 @@
 		161D950A216918C500A1B8F5 /* GithubJobs */ = {
 			isa = PBXGroup;
 			children = (
+				165BF7F42169271E00E169E8 /* fonts */,
+				165BF7F1216926B500E169E8 /* helpers */,
+				165BF7F0216920E900E169E8 /* controllers */,
+				165BF7ED21691E2400E169E8 /* models */,
+				165BF7EA21691E0600E169E8 /* services */,
 				161D950B216918C500A1B8F5 /* AppDelegate.swift */,
-				161D950D216918C500A1B8F5 /* ViewController.swift */,
 				161D950F216918C500A1B8F5 /* Main.storyboard */,
 				161D9512216918C700A1B8F5 /* Assets.xcassets */,
 				161D9514216918C700A1B8F5 /* LaunchScreen.storyboard */,
@@ -140,6 +152,46 @@
 				161D952D216918C800A1B8F5 /* Info.plist */,
 			);
 			path = GithubJobsUITests;
+			sourceTree = "<group>";
+		};
+		165BF7EA21691E0600E169E8 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				165BF7EB21691E1400E169E8 /* GithubJobsAPI.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		165BF7ED21691E2400E169E8 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				165BF7EE21691E2E00E169E8 /* Job.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		165BF7F0216920E900E169E8 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				161D950D216918C500A1B8F5 /* JobsViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		165BF7F1216926B500E169E8 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				165BF7F2216926C400E169E8 /* ViewBuilder.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		165BF7F42169271E00E169E8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				165BF7F52169272800E169E8 /* Avenir.swift */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		490028A26999078D2E72C35E /* Pods */ = {
@@ -340,13 +392,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GithubJobs/Pods-GithubJobs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,8 +431,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161D950E216918C500A1B8F5 /* ViewController.swift in Sources */,
+				165BF7EC21691E1400E169E8 /* GithubJobsAPI.swift in Sources */,
+				161D950E216918C500A1B8F5 /* JobsViewController.swift in Sources */,
+				165BF7F62169272800E169E8 /* Avenir.swift in Sources */,
 				161D950C216918C500A1B8F5 /* AppDelegate.swift in Sources */,
+				165BF7F3216926C400E169E8 /* ViewBuilder.swift in Sources */,
+				165BF7EF21691E2E00E169E8 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
