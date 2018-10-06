@@ -6,23 +6,27 @@ PODS:
   - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.4.0)
+  - SwiftSoup (1.7.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - BEMCheckBox
   - IGListKit (~> 3.0)
+  - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - BEMCheckBox
     - IGListKit
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
+  SwiftSoup: e5f61d37e3d802a4b5db81b4945de3da9bfdf115
 
-PODFILE CHECKSUM: 712bafc2485c6163d9f6ed81a363edfbe9994a16
+PODFILE CHECKSUM: 4a8f61fc0d50fcefe3bf4edcbc978c1b5ef799fe
 
 COCOAPODS: 1.5.3

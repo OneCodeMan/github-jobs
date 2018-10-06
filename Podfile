@@ -9,6 +9,7 @@ target 'GithubJobs' do
   pod 'Alamofire', '~> 4.7'
   pod 'IGListKit', '~> 3.0'
   pod 'BEMCheckBox'
+  pod 'SwiftSoup'
 
   target 'GithubJobsTests' do
     inherit! :search_paths
