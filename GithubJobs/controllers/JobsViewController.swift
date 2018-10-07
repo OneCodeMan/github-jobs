@@ -6,7 +6,7 @@ class JobsViewController: UIViewController {
     private struct Constants {
         static let viewTitle: String = "Github Jobs"
         static let cellId: String = "JobCell"
-        static let noResultsImageName: String = "rocket"
+        static let noResultsImageNames: [String] = ["rocket", "viking-helmet", "astronaut-helmet"]
         static let cellHeight: CGFloat = 215.0
         static let searchBarButtonItemSize: CGFloat = 25.0
         static let noResultsText: String = "No results found, try something else!"
@@ -30,7 +30,7 @@ class JobsViewController: UIViewController {
         let noResultsLabel = UILabel()
         
         let noResultsImageView = UIImageView()
-        let noResultsImage = UIImage.init(named: Constants.noResultsImageName)
+        let noResultsImage = UIImage.init(named: Constants.noResultsImageNames.randomElement() ?? "")
         
         noResultsImageView.image = noResultsImage
         noResultsView.addSubview(noResultsImageView)
@@ -54,7 +54,6 @@ class JobsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
         session.getJobs(withDescription: jobTitle, location: jobLocation, isFullTime: isFullTime) { jobs in
             self.jobs = jobs ?? []
             self.tableView.reloadData()

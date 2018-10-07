@@ -5,6 +5,9 @@ class JobCell: UITableViewCell {
     
     private struct Constants {
         static let leadingSpaceNormal: CGFloat = 5.0
+        static let dateFormat: String = "EEE MMM dd HH:mm:ss ZZZZ yyyy"
+        static let dateLocale: String = "en_US_POSIX"
+        static let secondsInADay: Double = 86400
     }
     
     var job: Job! {
@@ -16,7 +19,7 @@ class JobCell: UITableViewCell {
             guard let doc: Document = try? SwiftSoup.parse(job.description ?? "") else { return }
             guard let jobDescription = try? doc.text() else { return }
             descriptionLabel.text = jobDescription 
-            datePostedLabel.text = job.createdAt ?? ""
+            datePostedLabel.text = "Posted \(timeFrom(date: job.createdAt ?? ""))"
         }
     }
     
@@ -93,6 +96,26 @@ class JobCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func timeFrom(date: String) -> String {
+        let currentCalendar = NSCalendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: Constants.dateLocale)
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        dateFormatter.dateFormat = Constants.dateFormat
+        let datePosted = dateFormatter.date(from: date) ?? Date()
+        
+        if currentCalendar.isDateInToday(datePosted) {
+            return "Today"
+        } else if currentCalendar.isDateInYesterday(datePosted) {
+            return "Yesterday"
+        } else {
+            let timeInterval = -datePosted.timeIntervalSinceNow
+            let daysAgo = Int(timeInterval / Constants.secondsInADay)
+            return "\(daysAgo) days ago"
+        }
+        
     }
     
 }
