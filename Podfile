@@ -10,6 +10,7 @@ target 'GithubJobs' do
   pod 'IGListKit', '~> 3.0'
   pod 'BEMCheckBox'
   pod 'SwiftSoup'
+  pod 'SVProgressHUD'
 
   target 'GithubJobsTests' do
     inherit! :search_paths

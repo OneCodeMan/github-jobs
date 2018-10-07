@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SVProgressHUD
 
 class JobsViewController: UIViewController {
     
@@ -11,6 +12,7 @@ class JobsViewController: UIViewController {
         static let searchBarButtonItemSize: CGFloat = 25.0
         static let noResultsText: String = "No results found, try something else!"
         static let noResultsTextSize: CGFloat = 18.0
+        static let searchImageName: String = "magnifying-glass"
     }
     
     var jobTitle: String = ""
@@ -49,21 +51,30 @@ class JobsViewController: UIViewController {
         return noResultsView
     }()
     
+    var searchingInProgressView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     let session = GithubJobsAPI.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        SVProgressHUD.show()
         session.getJobs(withDescription: jobTitle, location: jobLocation, isFullTime: isFullTime) { jobs in
             self.jobs = jobs ?? []
             self.tableView.reloadData()
+            SVProgressHUD.dismiss()
+            self.searchingInProgressView.isHidden = true
+            self.tableView.isHidden = false
         }
     }
     
     private func setupView() {
         let searchItem = UIButton(type: .custom)
         searchItem.frame = CGRect(x: 0, y: 0, width: Constants.searchBarButtonItemSize, height: Constants.searchBarButtonItemSize)
-        searchItem.setImage(UIImage(named: "magnifying-glass"), for: .normal)
+        searchItem.setImage(UIImage(named: Constants.searchImageName), for: .normal)
         searchItem.addTarget(self, action: #selector(goToSearch), for: .touchUpInside)
         
         let searchMenuItem = UIBarButtonItem(customView: searchItem)
@@ -77,10 +88,19 @@ class JobsViewController: UIViewController {
         title = Constants.viewTitle
         view.backgroundColor = .white
         
+        view.addSubview(searchingInProgressView)
+        searchingInProgressView.backgroundColor = .white
+        searchingInProgressView.translatesAutoresizingMaskIntoConstraints = false
+        searchingInProgressView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        searchingInProgressView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        searchingInProgressView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        searchingInProgressView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
         view.addSubview(tableView)
+        tableView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(JobCell.self, forCellReuseIdentifier: "JobCell")
+        tableView.register(JobCell.self, forCellReuseIdentifier: Constants.cellId)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
