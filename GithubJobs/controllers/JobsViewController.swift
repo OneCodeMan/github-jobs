@@ -7,7 +7,7 @@ class JobsViewController: UIViewController {
     private struct Constants {
         static let viewTitle: String = "Github Jobs"
         static let cellId: String = "JobCell"
-        static let noResultsImageNames: [String] = ["rocket", "viking-helmet", "astronaut-helmet"]
+        static let noResultsImageNames: [String] = ["rocket", "viking-helmet", "astronaut-helmet", "castle", "castle-1"]
         static let cellHeight: CGFloat = 215.0
         static let searchBarButtonItemSize: CGFloat = 25.0
         static let noResultsText: String = "No results found, try something else!"
@@ -128,6 +128,7 @@ extension JobsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let modalViewController = JobDetailModalViewController()
         let job = jobs[indexPath.row]
         
