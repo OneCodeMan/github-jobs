@@ -9,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let searchViewController = SearchViewController()
         let jobsViewController = JobsViewController()
         let navigationController = UINavigationController(rootViewController: jobsViewController)
         window?.rootViewController = navigationController

@@ -107,6 +107,15 @@ extension JobsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let modalViewController = JobDetailModalViewController()
+        let job = jobs[indexPath.row]
+        
+        modalViewController.modalPresentationStyle = .popover
+        modalViewController.job = job
+        present(modalViewController, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.cellHeight
     }
