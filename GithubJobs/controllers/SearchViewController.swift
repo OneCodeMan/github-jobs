@@ -1,9 +1,12 @@
 import UIKit
 import BEMCheckBox
+import SVProgressHUD
 
 class SearchViewController: UIViewController {
     
     private struct Constants {
+        static let homeButtonItemSize: CGFloat = 20.0
+        static let homeIconImageName: String = "house"
         static let viewTitle: String = "Github Jobs"
         static let jobTitleHeader: String = "Title"
         static let jobTextFieldPlaceholder: String = "Enter a title.."
@@ -57,6 +60,20 @@ class SearchViewController: UIViewController {
     
     // MARK:- Setup view
     private func setupView() {
+        
+        let homeItem = UIButton(type: .custom)
+        homeItem.frame = CGRect(x: 0, y: 0, width: Constants.homeButtonItemSize, height: Constants.homeButtonItemSize)
+        homeItem.setImage(UIImage(named: Constants.homeIconImageName), for: .normal)
+        homeItem.addTarget(self, action: #selector(goToHome), for: .touchUpInside)
+        
+        let homeMenuItem = UIBarButtonItem(customView: homeItem)
+        let currWidth = homeMenuItem.customView?.widthAnchor.constraint(equalToConstant: Constants.homeButtonItemSize)
+        currWidth?.isActive = true
+        let currHeight = homeMenuItem.customView?.heightAnchor.constraint(equalToConstant: Constants.homeButtonItemSize)
+        currHeight?.isActive = true
+        
+        navigationItem.leftBarButtonItem = homeMenuItem
+        navigationItem.leftBarButtonItem?.tintColor = .black
         title = Constants.viewTitle
         view.backgroundColor = .white
         
@@ -127,6 +144,12 @@ class SearchViewController: UIViewController {
         searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.normalLeading).isActive = true
         searchButton.heightAnchor.constraint(equalToConstant: Constants.searchButtonHeight).isActive = true
         searchButton.topAnchor.constraint(equalTo: fullTimeCheckbox.bottomAnchor, constant: 10).isActive = true
+    }
+    
+    @objc private func goToHome() {
+        let vc = JobsViewController()
+        SVProgressHUD.dismiss()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func searchButtonClicked() {
