@@ -13,6 +13,8 @@ class JobsViewController: UIViewController {
         static let noResultsText: String = "No results found, try something else!"
         static let noResultsTextSize: CGFloat = 18.0
         static let searchImageName: String = "magnifying-glass"
+        static let headerLabelHorizontal: CGFloat = 5.0
+        static let headerLabelTextSize: CGFloat = 25.0
     }
     
     var jobTitle: String = ""
@@ -110,6 +112,7 @@ class JobsViewController: UIViewController {
     
     @objc private func goToSearch() {
         let vc = SearchViewController()
+        SVProgressHUD.dismiss()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -158,6 +161,33 @@ extension JobsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .white
+        let label = UILabel()
+        var headerString = ""
+        
+        if !jobTitle.isEmpty && jobLocation.isEmpty {
+            headerString.append("Searching for \(jobTitle) jobs. Found \(jobs.count) results.")
+        } else if !jobLocation.isEmpty && jobTitle.isEmpty {
+            headerString.append("Searching for jobs in \(jobLocation). Found \(jobs.count) results.")
+        } else if !jobTitle.isEmpty && !jobLocation.isEmpty {
+            headerString.append("Searching for \(jobTitle) jobs in \(jobLocation). Found \(jobs.count) result(s).")
+        }
+    
+        label.text = headerString
+        label.numberOfLines = 0
+        label.font = UIFont(name: Avenir.mediumOblique.rawValue, size: Constants.headerLabelTextSize)
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.headerLabelHorizontal).isActive = true
+        label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.headerLabelHorizontal).isActive = true
+        
+        return view
     }
 
 }

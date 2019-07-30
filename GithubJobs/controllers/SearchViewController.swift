@@ -16,18 +16,27 @@ class SearchViewController: UIViewController {
         static let isFullTimeText: String = "Full Time"
         static let searchButtonTitle: String = "Search"
         static let searchButtonHeight: CGFloat = 45.0
+        static let locationImage: String = "location"
+        static let titleImage: String = "person"
+        static let textFieldImageSize: CGFloat = 20.0
     }
     
     let viewBuilder = ViewBuilder()
     
     //MARK:- View components
-    func buildTextInputField(withPlaceholder placeholder: String, height: CGFloat) -> UITextField {
+    func buildTextInputField(withPlaceholder placeholder: String, height: CGFloat, imageName: String) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
         
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.borderWidth = 0.7
         textField.layer.cornerRadius = 5.0
+        
+        let imageView = UIImageView(frame: CGRect(x: -5, y: 0, width: Constants.textFieldImageSize, height: Constants.textFieldImageSize))
+        let image = UIImage(named: imageName)
+        imageView.image = image
+        textField.rightView = imageView
+        textField.rightViewMode = .always
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: textField.frame.height))
         textField.leftView = paddingView
@@ -63,7 +72,7 @@ class SearchViewController: UIViewController {
             jobHeaderView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         }
         
-        jobTextField = buildTextInputField(withPlaceholder: Constants.jobTextFieldPlaceholder, height: Constants.textFieldHeight)
+        jobTextField = buildTextInputField(withPlaceholder: Constants.jobTextFieldPlaceholder, height: Constants.textFieldHeight, imageName: Constants.titleImage)
         view.addSubview(jobTextField)
         jobTextField.isUserInteractionEnabled = true
         jobTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +87,7 @@ class SearchViewController: UIViewController {
         locationHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.normalLeading).isActive = true
         locationHeaderView.topAnchor.constraint(equalTo: jobTextField.bottomAnchor).isActive = true
         
-        locationTextField = buildTextInputField(withPlaceholder: Constants.jobLocationTextFieldPlaceholder, height: Constants.textFieldHeight)
+        locationTextField = buildTextInputField(withPlaceholder: Constants.jobLocationTextFieldPlaceholder, height: Constants.textFieldHeight, imageName: Constants.locationImage)
         view.addSubview(locationTextField)
         locationTextField.isUserInteractionEnabled = true
         locationTextField.translatesAutoresizingMaskIntoConstraints = false

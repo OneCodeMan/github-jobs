@@ -9,8 +9,8 @@ class JobDetailModalViewController: UIViewController {
         static let headerTitleSize: CGFloat = 20.0
         static let urlLabelTextSize: CGFloat = 15.0
         static let urlLabelHeight: CGFloat = 50.0
-        static let descriptionTextViewMaxHeight: CGFloat = 200.0
-        static let howToApplyTextViewMaxHeight: CGFloat = 80.0
+        static let descriptionTextViewMaxHeight: CGFloat = 180.0
+        static let howToApplyTextViewMaxHeight: CGFloat = 95.0
         static let exitModalButtonSize: CGFloat = 30.0
         static let descriptionHeaderText: String = "Job Description"
         static let howToApplyHeaderText: String = "How to Apply"
@@ -246,7 +246,7 @@ class JobDetailModalViewController: UIViewController {
         
         view.addSubview(companyUrlButton)
         companyUrlButton.translatesAutoresizingMaskIntoConstraints = false
-        companyUrlButton.topAnchor.constraint(equalTo: howToApplyContent.bottomAnchor).isActive = true
+        companyUrlButton.topAnchor.constraint(equalTo: howToApplyContent.bottomAnchor, constant: Constants.topSpaceNormal).isActive = true
         companyUrlButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         companyUrlButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.buttonWidthMultiplier).isActive = true
         companyUrlButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight).isActive = true
